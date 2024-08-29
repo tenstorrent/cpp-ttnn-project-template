@@ -2,13 +2,13 @@ include(CTest)
 enable_testing()
 
 add_executable(
-  ttml_tests
+  sample_tests
   hello_test.cpp
 )
-target_link_libraries( ttml_tests
+target_link_libraries(sample_tests
   GTest::gtest_main
-  ttml
+  sample_lib
 )
 
 include(GoogleTest)
-gtest_discover_tests(ttml_tests)
+gtest_discover_tests(sample_tests)

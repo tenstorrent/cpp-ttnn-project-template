@@ -1,11 +1,11 @@
-project (ttml)
+project (sample_lib)
 
 file(GLOB_RECURSE SOURCES LIST_DIRECTORIES true *.hpp *.cpp) # I am a bad person
 
 #set(SOURCES)
 
 
-add_library(ttml STATIC ${SOURCES})
+add_library(sample_lib STATIC ${SOURCES})
 
 add_library(stdlib INTERFACE)
 
@@ -16,14 +16,14 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang" )
         message(FATAL_ERROR "libc++ or libc++abi not found. Make sure you have libc++ and libc++abi installed and in your PATH")
     endif()
 
-    target_link_libraries(ttml PUBLIC ${LIBC++} ${LIBC++ABI})
-    target_compile_options(ttml PUBLIC -stdlib=libc++)
+    target_link_libraries(sample_lib PUBLIC ${LIBC++} ${LIBC++ABI})
+    target_compile_options(sample_lib PUBLIC -stdlib=libc++)
 else()
-    target_link_libraries(ttml PUBLIC stdc++)
-    target_compile_options(ttml PUBLIC -fsized-deallocation)
+    target_link_libraries(sample_lib PUBLIC stdc++)
+    target_compile_options(sample_lib PUBLIC -fsized-deallocation)
 endif()
 
-target_include_directories(ttml PUBLIC
+target_include_directories(sample_lib PUBLIC
     # Metalium
     $ENV{TT_METAL_HOME}
     $ENV{TT_METAL_HOME}/tt_metal
@@ -43,30 +43,30 @@ target_include_directories(ttml PUBLIC
     ${nng_include_dir}
 
 )
-target_include_directories(ttml PUBLIC ${PROJECT_SOURCE_DIR})
-target_link_directories(ttml PUBLIC
+target_include_directories(sample_lib PUBLIC ${PROJECT_SOURCE_DIR})
+target_link_directories(sample_lib PUBLIC
     $ENV{TT_METAL_HOME}/build/lib
 )
 find_package(Python REQUIRED Development)
 
 foreach(lib ${BoostPackages})
-    target_include_directories(ttml PUBLIC ${Boost${lib}_SOURCE_DIR}/include)
+    target_include_directories(sample_lib PUBLIC ${Boost${lib}_SOURCE_DIR}/include)
 endforeach()
 
-target_link_libraries(ttml PUBLIC
+target_link_libraries(sample_lib PUBLIC
     dl z pthread atomic
 )
 
-target_link_libraries(ttml PUBLIC
+target_link_libraries(sample_lib PUBLIC
     tt_metal
     pthread
     Python::Python
     $ENV{TT_METAL_HOME}/build/lib/_ttnn.so
 )
 
-target_link_libraries(ttml PUBLIC 
+target_link_libraries(sample_lib PUBLIC 
 yaml-cpp::yaml-cpp)
 
-target_compile_definitions(ttml PUBLIC
+target_compile_definitions(sample_lib PUBLIC
     FMT_HEADER_ONLY
 )
