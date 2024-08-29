@@ -30,3 +30,13 @@
 *.exe
 *.out
 *.app
+debug/
+build/
+
+# cpm
+.cpmcache/
+
+# vscode
+.vscode/
+
+Testing/
