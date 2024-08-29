@@ -5,6 +5,7 @@
 #include "tt_metal/impl/device/device.hpp"
 
 namespace sample {
+
 DeviceWrapper::DeviceWrapper(int device_index) {
     device = tt::tt_metal::CreateDevice(device_index);
     tt::log_info("Device #{} successfully created", device_index);
