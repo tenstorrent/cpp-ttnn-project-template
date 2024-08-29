@@ -8,11 +8,11 @@ chmod +x init_repo.sh
 
 # Some commands to use now
 
-cmake  -DCMAKE_BUILD_TYPE=Debug -B debug
+cmake  -DCMAKE_BUILD_TYPE=Debug -B debug -GNinja
 
 cmake --build debug --config Debug --clean-first
 
-clang-tidy framework/main.cpp -p debug
+clang-tidy sources/examples/sample_app/main.cpp -p debug
 
 # Testing
 

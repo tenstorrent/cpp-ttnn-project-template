@@ -3,7 +3,12 @@ cmake_policy(VERSION 3.16)
 
 include(cmake/compilers.cmake)
 
-
+if("$ENV{TT_METAL_HOME}" STREQUAL "")
+    message(FATAL_ERROR "TT_METAL_HOME is not set")
+endif()
+if("$ENV{ARCH_NAME}" STREQUAL "")
+    message(FATAL_ERROR "ARCH_NAME is not set")
+endif()
 
 if (DEFINED ENV{CMAKE_C_COMPILER} AND DEFINED ENV{CMAKE_CXX_COMPILER})
     message(STATUS "Setting C and C++ compiler from environment variables")
@@ -21,15 +26,12 @@ endif()
 
 
 project(ml-framework-cpp)
+
 CHECK_COMPILERS()
 
-if("$ENV{TT_METAL_HOME}" STREQUAL "")
-    message(FATAL_ERROR "TT_METAL_HOME is not set")
-endif()
-if("$ENV{ARCH_NAME}" STREQUAL "")
-    message(FATAL_ERROR "ARCH_NAME is not set")
-endif()
 
+
+message(STATUS "C++ Standard: ${CMAKE_CXX_STANDARD}")
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g -DDEBUG=DEBUG")
@@ -40,17 +42,9 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
 
-
-message(STATUS "c++ Standard: ${CMAKE_CXX_STANDARD}")
-
 include(cmake/dependencies.cmake)
 
-message($ENV{TT_METAL_HOME}/tt_metal/third_party/src/firmware/riscv/$ENV{ARCH_NAME})
-
-
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
-#target_precompile_headers(ml-framework-cpp PRIVATE pch.hpp)
 
 add_subdirectory(sources)
 include(CTest)
