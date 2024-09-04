@@ -36,7 +36,4 @@ build/
 # cpm
 .cpmcache/
 
-# vscode
-.vscode/
-
 Testing/

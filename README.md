@@ -11,19 +11,22 @@ Then simply run this commands:
 
 `./init_repo.sh`
 
+# VSCode setup
+
+* Install CMake plugin.
+* Install clang plugin.
+* Default launch json expects gdb-14.2
 
 # Features
 
 * `clang-format` in precommit hook.
 * `clang-tidy` to run manually (for now).
-* `.clangd` with c++20 support for the vscode
+
 
 
 # Some commands to use now
 
-`cmake  -DCMAKE_BUILD_TYPE=Debug -B debug -GNinja`
-
-`cmake --build debug --config Debug --clean-first`
+Use CMake plugin to setup and debug project and tests.
 
 `clang-tidy sources/examples/sample_app/main.cpp -p debug`
 
