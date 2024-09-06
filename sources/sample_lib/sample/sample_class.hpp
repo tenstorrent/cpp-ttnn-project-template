@@ -1,9 +1,8 @@
 /*
- * SPDX-FileCopyrightText: (c) 2024 Tenstorrent Inc.
+ * SPDX-FileCopyrightText: (c) 2024 enstorrent AI ULC.
  *
  * SPDX-License-Identifier: Apache-2.0
  */
-
 
 #pragma once
 
