@@ -1,7 +1,6 @@
-: '
- SPDX-FileCopyrightText: (c) 2024 enstorrent AI ULC.
- SPDX-License-Identifier: Apache-2.0
-'
+# SPDX-FileCopyrightText: (c) 2024 enstorrent AI ULC.
+#
+# SPDX-License-Identifier: Apache-2.0
 
 
 git config --local core.hooksPath .githooks/
