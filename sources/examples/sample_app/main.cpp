@@ -20,8 +20,8 @@ int main() {
     sample::DeviceWrapper wrapper(device_id);
     ttnn::MemoryConfig mem_config = ttnn::L1_MEMORY_CONFIG;
     ttnn::Shape shape = ttnn::Shape(tt::tt_metal::Array4D{1, 3, 32, 32});
-    const auto input_tensor_a = ttnn::zeros(shape, ttnn::bfloat16, ttnn::TILE_LAYOUT, wrapper.get_device(), mem_config);
-    const auto input_tensor_b = ttnn::zeros(shape, ttnn::bfloat16, ttnn::TILE_LAYOUT, wrapper.get_device(), mem_config);
+    const auto input_tensor_a = ttnn::zeros(shape, DataType::BFLOAT16, ttnn::TILE_LAYOUT, wrapper.get_device(), mem_config);
+    const auto input_tensor_b = ttnn::zeros(shape, DataType::BFLOAT16, ttnn::TILE_LAYOUT, wrapper.get_device(), mem_config);
 
     auto call = [&] {
         const auto output_tensor = ttnn::add(input_tensor_a, input_tensor_b);

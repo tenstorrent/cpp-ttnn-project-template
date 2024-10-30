@@ -33,6 +33,15 @@ target_include_directories(sample_lib PUBLIC
     $ENV{TT_METAL_HOME}/tt_metal/hw/inc/wormhole/wormhole_b0_defines
     $ENV{TT_METAL_HOME}/tt_metal/hw/inc/
     $ENV{TT_METAL_HOME}/tt_metal/third_party/umd/src/firmware/riscv/wormhole
+    $ENV{TT_METAL_HOME}/tt_metal/third_party/umd/device
+    $ENV{TT_METAL_HOME}/.cpmcache/fmt/73b5ec45edbd92babfd91c3777a9e1ab9cac8238/include
+    $ENV{TT_METAL_HOME}/.cpmcache/magic_enum/1e1af177d4ab0ef660f105434fd1017c4d1f8c17/include/magic_enum
+    $ENV{TT_METAL_HOME}/.cpmcache/boost_core/e679bef5c160cf29d0f37d549881dc5f5a58c332/include
+    $ENV{TT_METAL_HOME}/.cpmcache/boost_container/5fb02b14b46d0d84e7a0ce09e2ea5e963d5d93bd/include
+    $ENV{TT_METAL_HOME}/.cpmcache/boost_config/0bad5ba3b48288a243894aa801ed6eccbef70b60/include
+    $ENV{TT_METAL_HOME}/.cpmcache/boost_move/c59effd88face3140123440bc5425ee60328f08d/include
+    $ENV{TT_METAL_HOME}/.cpmcache/boost_intrusive/4a7bf962355d8580809cea3c68f55bbaaa746e64/include
+    $ENV{TT_METAL_HOME}/.cpmcache/boost_assert/3ab1f6f9db9a884ad9a641164dbb6589a5aa7e2d/include
 
     # TTNN
     $ENV{TT_METAL_HOME}/ttnn/cpp
@@ -62,6 +71,9 @@ target_link_libraries(sample_lib PUBLIC
     pthread
     Python::Python
     $ENV{TT_METAL_HOME}/build/lib/_ttnn.so
+    $ENV{TT_METAL_HOME}/build/lib/libdevice.so
+    $ENV{TT_METAL_HOME}/build/lib/libfmt.so
+    $ENV{TT_METAL_HOME}/build/lib/libnng.so.1
 )
 
 target_link_libraries(sample_lib PUBLIC 
