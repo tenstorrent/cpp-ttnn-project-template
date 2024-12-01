@@ -32,6 +32,7 @@ target_include_directories(sample_lib PUBLIC
     $ENV{TT_METAL_HOME}/tt_metal/hw/inc/wormhole
     $ENV{TT_METAL_HOME}/tt_metal/hw/inc/wormhole/wormhole_b0_defines
     $ENV{TT_METAL_HOME}/tt_metal/hw/inc/
+    $ENV{TT_METAL_HOME}/tt_metal/third_party/umd/device/api/
     $ENV{TT_METAL_HOME}/tt_metal/third_party/umd/src/firmware/riscv/wormhole
     $ENV{TT_METAL_HOME}/tt_metal/third_party/umd/device
     $ENV{TT_METAL_HOME}/.cpmcache/fmt/73b5ec45edbd92babfd91c3777a9e1ab9cac8238/include
@@ -70,9 +71,9 @@ target_link_libraries(sample_lib PUBLIC
     tt_metal
     pthread
     Python::Python
+    numa
     $ENV{TT_METAL_HOME}/build/lib/_ttnn.so
     $ENV{TT_METAL_HOME}/build/lib/libdevice.so
-    $ENV{TT_METAL_HOME}/build/lib/libfmt.so
     $ENV{TT_METAL_HOME}/build/lib/libnng.so.1
 )
 
